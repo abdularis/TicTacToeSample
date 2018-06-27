@@ -1,0 +1,28 @@
+package com.aar.app.tictactoe.tictactoe
+
+const val BOARD_SIZE = 3
+const val EMPTY_TOKEN = 0
+private const val ARRAY_SIZE = BOARD_SIZE * BOARD_SIZE
+
+class Board(val data: IntArray = IntArray(ARRAY_SIZE, { EMPTY_TOKEN })) {
+
+    init {
+        if (data.size != ARRAY_SIZE) {
+            throw IllegalArgumentException(
+                    "data array size must have exactly $ARRAY_SIZE elements, current size ${data.size}")
+        }
+    }
+
+    val isFull: Boolean
+        get() {
+            for (cell in data) {
+                if (cell == EMPTY_TOKEN) return false
+            }
+            return true
+        }
+
+    operator fun get(i: Int) = data[i]
+    operator fun set(i: Int, newValue: Int) {
+        data[i] = newValue
+    }
+}
