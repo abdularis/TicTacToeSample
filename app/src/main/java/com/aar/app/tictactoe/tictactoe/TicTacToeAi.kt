@@ -5,7 +5,7 @@ class TicTacToeAi(val maxPlayer: Int, val minPlayer: Int) {
     fun findBestMove(board: Board, player: Int): Move = minimax(board, player)
 
     private fun minimax(board: Board, player: Int): Move {
-        val score = BoardEvaluator.evaluate(board, player, player == maxPlayer)
+        val score = BoardEvaluator.evaluate(board, maxPlayer, minPlayer)
         if (board.isFull || score == BoardEvaluator.VAL_MAX || score == BoardEvaluator.VAL_MIN) {
             return Move(score = score)
         }

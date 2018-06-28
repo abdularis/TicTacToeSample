@@ -22,7 +22,7 @@ public class BoardEvaluatorTest {
         };
 
         Board gameBoard = new Board(b);
-        assertEquals(BoardEvaluator.VAL_DRAW, BoardEvaluator.evaluate(gameBoard, PLAYER_MAX, true));
+        assertEquals(BoardEvaluator.VAL_DRAW, BoardEvaluator.evaluate(gameBoard, PLAYER_MAX, PLAYER_MIN));
     }
 
     @Test
@@ -36,25 +36,25 @@ public class BoardEvaluatorTest {
         };
 
         Board gameBoard = new Board(b);
-        assertEquals(BoardEvaluator.VAL_DRAW, BoardEvaluator.evaluate(gameBoard, PLAYER_MAX, true));
+        assertEquals(BoardEvaluator.VAL_DRAW, BoardEvaluator.evaluate(gameBoard, PLAYER_MAX, PLAYER_MIN));
     }
 
     @Test
     public void evaluateHorizontalWin() {
         Board gameBoard = createBoardHorizontalWin(0, PLAYER_MAX);
-        assertEquals(BoardEvaluator.VAL_MAX, BoardEvaluator.evaluate(gameBoard, PLAYER_MAX, true));
+        assertEquals(BoardEvaluator.VAL_MAX, BoardEvaluator.evaluate(gameBoard, PLAYER_MAX, PLAYER_MIN));
 
         gameBoard = createBoardHorizontalWin(2, PLAYER_MIN);
-        assertEquals(BoardEvaluator.VAL_MIN, BoardEvaluator.evaluate(gameBoard, PLAYER_MIN, false));
+        assertEquals(BoardEvaluator.VAL_MIN, BoardEvaluator.evaluate(gameBoard, PLAYER_MAX, PLAYER_MIN));
     }
 
     @Test
     public void evaluateVerticalWin() {
         Board gameBoard = createBoardVerticalWin(0, PLAYER_MIN);
-        assertEquals(BoardEvaluator.VAL_MIN, BoardEvaluator.evaluate(gameBoard, PLAYER_MIN, false));
+        assertEquals(BoardEvaluator.VAL_MIN, BoardEvaluator.evaluate(gameBoard, PLAYER_MAX, PLAYER_MIN));
 
         gameBoard = createBoardVerticalWin(1, PLAYER_MAX);
-        assertEquals(BoardEvaluator.VAL_MAX, BoardEvaluator.evaluate(gameBoard, PLAYER_MAX, true));
+        assertEquals(BoardEvaluator.VAL_MAX, BoardEvaluator.evaluate(gameBoard, PLAYER_MAX, PLAYER_MIN));
     }
 
     @Test
@@ -67,9 +67,7 @@ public class BoardEvaluatorTest {
         };
 
         Board gameBoard = new Board(b);
-        assertEquals(BoardEvaluator.VAL_MAX, BoardEvaluator.evaluate(gameBoard, PLAYER_MAX, true));
-        assertEquals(BoardEvaluator.VAL_DRAW, BoardEvaluator.evaluate(gameBoard, PLAYER_MIN, false));
-
+        assertEquals(BoardEvaluator.VAL_MAX, BoardEvaluator.evaluate(gameBoard, PLAYER_MAX, PLAYER_MIN));
 
 
         int o = PLAYER_MIN;
@@ -80,8 +78,7 @@ public class BoardEvaluatorTest {
         };
 
         gameBoard = new Board(b1);
-        assertEquals(BoardEvaluator.VAL_MIN, BoardEvaluator.evaluate(gameBoard, PLAYER_MIN, false));
-        assertEquals(BoardEvaluator.VAL_DRAW, BoardEvaluator.evaluate(gameBoard, PLAYER_MAX, true));
+        assertEquals(BoardEvaluator.VAL_MIN, BoardEvaluator.evaluate(gameBoard, PLAYER_MAX, PLAYER_MIN));
     }
 
     @Test
@@ -94,7 +91,7 @@ public class BoardEvaluatorTest {
         };
 
         Board gameBoard = new Board(b);
-        assertEquals(BoardEvaluator.VAL_DRAW, BoardEvaluator.evaluate(gameBoard, PLAYER_MAX, true));
+        assertEquals(BoardEvaluator.VAL_DRAW, BoardEvaluator.evaluate(gameBoard, PLAYER_MAX, PLAYER_MIN));
     }
 
     private Board createBoardHorizontalWin(int row, int player) {

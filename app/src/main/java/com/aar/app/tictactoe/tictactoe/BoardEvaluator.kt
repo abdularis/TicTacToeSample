@@ -1,34 +1,41 @@
 package com.aar.app.tictactoe.tictactoe
 
 class BoardEvaluator {
-
     companion object {
         const val VAL_MAX = 100
         const val VAL_MIN = -100
         const val VAL_DRAW = 0
 
         @JvmStatic
-        fun evaluate(board: Board, player: Int, isMaxPlayer: Boolean): Int {
-            return if (
-                    // horizontal
-                    board[0] == player && board[0] == board[1] && board[1] == board[2] ||
-                    board[3] == player && board[3] == board[4] && board[4] == board[5] ||
-                    board[6] == player && board[6] == board[7] && board[7] == board[8] ||
-
-                    // vertical
-                    board[0] == player && board[0] == board[3] && board[3] == board[6] ||
-                    board[1] == player && board[1] == board[4] && board[4] == board[7] ||
-                    board[2] == player && board[2] == board[5] && board[5] == board[8] ||
-
-                    // diagonal
-                    board[0] == player && board[0] == board[4] && board[4] == board[8] ||
-                    board[2] == player && board[2] == board[4] && board[4] == board[6]
-            ) {
-                if (isMaxPlayer) VAL_MAX else VAL_MIN
-            } else {
-                VAL_DRAW
+        fun evaluate(board: Board, maxPlayer: Int, minPlayer: Int): Int {
+            // horizontal
+            for (i in 0..6 step 3) {
+                if (board[i] == board[1 + i] && board[1 + i] == board[2 + i]) {
+                    if (board[i] == maxPlayer) return VAL_MAX
+                    else if (board[i] == minPlayer) return VAL_MIN
+                }
             }
+
+            // vertical
+            for (i in 0..2) {
+                if (board[i] == board[3 + i] && board[3 + i] == board[6 + i]) {
+                    if (board[i] == maxPlayer) return VAL_MAX
+                    else if (board[i] == minPlayer) return VAL_MIN
+                }
+            }
+
+            // diagonal
+            if (board[0] == board[4] && board[4] == board[8]) {
+                if (board[0] == maxPlayer) return VAL_MAX
+                else if (board[0] == minPlayer) return VAL_MIN
+            }
+
+            if (board[2] == board[4] && board[4] == board[6]) {
+                if (board[2] == maxPlayer) return VAL_MAX
+                else if (board[2] == minPlayer) return VAL_MIN
+            }
+
+            return VAL_DRAW
         }
     }
-
 }
