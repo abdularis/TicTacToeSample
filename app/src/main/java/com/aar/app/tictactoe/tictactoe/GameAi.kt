@@ -2,6 +2,11 @@ package com.aar.app.tictactoe.tictactoe
 
 class GameAi(val maxPlayer: Int, val minPlayer: Int) {
 
+    companion object {
+        private const val VAL_WORST_MAX = BoardEvaluator.VAL_MIN * 10
+        private const val VAL_WORST_MIN = BoardEvaluator.VAL_MAX * 10
+    }
+
     fun findBestMove(board: Board, player: Int): Move = minimax(board, player)
 
     private fun minimax(board: Board, player: Int): Move {
@@ -10,22 +15,28 @@ class GameAi(val maxPlayer: Int, val minPlayer: Int) {
             return Move(score = score)
         }
 
-        val moves = ArrayList<Move>()
+        var alpha = BoardEvaluator.VAL_MIN
+        var beta = BoardEvaluator.VAL_MAX
+        var bestMove = Move(score = if (player == maxPlayer) VAL_WORST_MAX else VAL_WORST_MIN)
         for (i in 0 until board.data.size) {
             if (board[i] != 0) continue
+
             board[i] = player
-            val move = if (player == maxPlayer)
-                minimax(board, minPlayer) else
-                minimax(board, maxPlayer)
+            val move = minimax(board, if (player == maxPlayer) minPlayer else maxPlayer)
             board[i] = EMPTY_TOKEN
-            moves.add(Move(i, move.score))
+
+            if (player == maxPlayer && move.score > bestMove.score) {
+                bestMove = Move(i, move.score)
+                alpha = Math.max(alpha, bestMove.score)
+            } else if (player == minPlayer && move.score < bestMove.score) {
+                bestMove = Move(i, move.score)
+                beta = Math.min(beta, bestMove.score)
+            }
+
+            if (beta <= alpha)
+                break
         }
 
-        val bestMove = if (player == maxPlayer) {
-            moves.maxBy { it.score }
-        } else {
-            moves.minBy { it.score }
-        }
-        return bestMove ?: Move()
+        return bestMove
     }
 }
