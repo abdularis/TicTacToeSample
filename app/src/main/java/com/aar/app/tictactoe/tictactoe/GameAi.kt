@@ -1,6 +1,6 @@
 package com.aar.app.tictactoe.tictactoe
 
-class TicTacToeAi(val maxPlayer: Int, val minPlayer: Int) {
+class GameAi(val maxPlayer: Int, val minPlayer: Int) {
 
     fun findBestMove(board: Board, player: Int): Move = minimax(board, player)
 

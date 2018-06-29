@@ -2,7 +2,7 @@ package com.aar.app.tictactoe;
 
 import com.aar.app.tictactoe.tictactoe.Board;
 import com.aar.app.tictactoe.tictactoe.Move;
-import com.aar.app.tictactoe.tictactoe.TicTacToeAi;
+import com.aar.app.tictactoe.tictactoe.GameAi;
 
 import org.junit.Test;
 
@@ -15,7 +15,7 @@ public class MinimaxTest {
 
     @Test
     public void test1() {
-        TicTacToeAi m = new TicTacToeAi(PLAYER_MAX, PLAYER_MIN);
+        GameAi m = new GameAi(PLAYER_MAX, PLAYER_MIN);
 
         int b[] = {
                 1, 0, 2,
@@ -30,7 +30,7 @@ public class MinimaxTest {
 
     @Test
     public void test2() {
-        TicTacToeAi m = new TicTacToeAi(PLAYER_MAX, PLAYER_MIN);
+        GameAi m = new GameAi(PLAYER_MAX, PLAYER_MIN);
 
         int b[] = {
                 0, 0, 0,
@@ -45,7 +45,7 @@ public class MinimaxTest {
 
     @Test
     public void test3() {
-        TicTacToeAi m = new TicTacToeAi(PLAYER_MAX, PLAYER_MIN);
+        GameAi m = new GameAi(PLAYER_MAX, PLAYER_MIN);
 
         int b[] = {
                 0, 0, 0,
@@ -60,7 +60,7 @@ public class MinimaxTest {
 
     @Test
     public void test4() {
-        TicTacToeAi m = new TicTacToeAi(PLAYER_MAX, PLAYER_MIN);
+        GameAi m = new GameAi(PLAYER_MAX, PLAYER_MIN);
 
         int b[] = {
                 0, 0, 0,
@@ -75,7 +75,7 @@ public class MinimaxTest {
 
     @Test
     public void test5() {
-        TicTacToeAi m = new TicTacToeAi(PLAYER_MAX, PLAYER_MIN);
+        GameAi m = new GameAi(PLAYER_MAX, PLAYER_MIN);
 
         int b[] = {
                 2, 1, 0,
@@ -90,7 +90,7 @@ public class MinimaxTest {
 
     @Test
     public void test6() {
-        TicTacToeAi m = new TicTacToeAi(PLAYER_MAX, PLAYER_MIN);
+        GameAi m = new GameAi(PLAYER_MAX, PLAYER_MIN);
 
         int b[] = {
                 2, 1, 1,
@@ -104,7 +104,7 @@ public class MinimaxTest {
 
     @Test
     public void test7() {
-        TicTacToeAi m = new TicTacToeAi(PLAYER_MAX, PLAYER_MIN);
+        GameAi m = new GameAi(PLAYER_MAX, PLAYER_MIN);
 
         int b[] = {
                 0, 0, 0,

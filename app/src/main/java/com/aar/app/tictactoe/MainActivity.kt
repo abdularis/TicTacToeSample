@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     private var currentPlayer = COMPUTER
     private val board = Board()
-    private val ai = TicTacToeAi(COMPUTER, HUMAN)
+    private val ai = GameAi(COMPUTER, HUMAN)
     private val btnGrid: Array<Button?> = Array(9, { null })
 
     override fun onCreate(savedInstanceState: Bundle?) {
