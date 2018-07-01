@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="GridLine">
+        <attr name="lineColor" format="color"/>
+        <attr name="lineWidth" format="dimension"/>
+        <attr name="columnCount" format="integer"/>
+        <attr name="rowCount" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="GridLayout">
+        <attr name="columnCount"/>
+        <attr name="rowCount"/>
+        <attr name="row" format="integer"/>
+        <attr name="col" format="integer"/>
+    </declare-styleable>
+
+</resources>
