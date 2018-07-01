@@ -1,8 +1,8 @@
 package com.aar.app.tictactoe;
 
-import com.aar.app.tictactoe.tictactoe.Board;
-import com.aar.app.tictactoe.tictactoe.Move;
-import com.aar.app.tictactoe.tictactoe.GameAi;
+import com.aar.app.tictactoe.game.Board;
+import com.aar.app.tictactoe.game.Move;
+import com.aar.app.tictactoe.game.GameAi;
 
 import org.junit.Test;
 

@@ -1,7 +1,7 @@
 package com.aar.app.tictactoe;
 
-import com.aar.app.tictactoe.tictactoe.Board;
-import com.aar.app.tictactoe.tictactoe.BoardEvaluator;
+import com.aar.app.tictactoe.game.Board;
+import com.aar.app.tictactoe.game.BoardEvaluator;
 
 import org.junit.Test;
 

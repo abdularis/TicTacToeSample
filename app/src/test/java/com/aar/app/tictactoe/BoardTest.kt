@@ -1,7 +1,7 @@
 package com.aar.app.tictactoe
 
-import com.aar.app.tictactoe.tictactoe.Board
-import com.aar.app.tictactoe.tictactoe.EMPTY_TOKEN
+import com.aar.app.tictactoe.game.Board
+import com.aar.app.tictactoe.game.EMPTY_TOKEN
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

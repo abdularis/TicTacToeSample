@@ -1,6 +1,6 @@
 package com.aar.app.tictactoe
 
-import com.aar.app.tictactoe.tictactoe.Move
+import com.aar.app.tictactoe.game.Move
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
